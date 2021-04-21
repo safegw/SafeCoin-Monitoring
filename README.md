@@ -2,7 +2,7 @@
 
 *This post is Part 1 of a 3-part series about setting up proper monitoring on your SafeCoin Validator.*
 
-* [Part 1.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/README.md) Solana Validator Monitoring Tool
+* [Part 1.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/README.md) SafeCoin Validator Monitoring Tool
 * [Part 2.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/How%20to%20Install%20TIG%20Stack.md) How to Install Telegraf, InfluxDB, and Grafana
 * [Part 3.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/Guidelines%20interpreting%20metrics.md) Interpreting monitoring metrics
 
