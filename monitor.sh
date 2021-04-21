@@ -1,39 +1,39 @@
 #!/bin/bash
-# set -x # uncomment to enable debug
+#set -x # uncomment to enable debug
 
 #####    Packages required: jq, bc
-#####    Solana Validator Monitoring Script v.0.14 to be used with Telegraf / Grafana / InfluxDB
-#####    Fetching data from Solana validators, outputs metrics in Influx Line Protocol on stdout
-#####    Created: 14 Jan 18:28 CET 2021 by Stakeconomy.com. Forked from original Zabbix nodemonitor.sh script created by Stakezone
-#####    For support post your questions in the #monitoring channel in the Solana discord server
+#####    SafeCoin Validator Monitoring Script v.0.1 to be used with Telegraf / Grafana / InfluxDB
+#####    Fetching data from SafeCoin validators, outputs metrics in Influx Line Protocol on stdout
+#####    Created: 21 Apr 19:19 CET 2021 by safegw.net. Forked from stakeconomy and original Zabbix nodemonitor.sh script created by Stakezone
+#####    
 
 #####    CONFIG    ##################################################################################################
 configDir="$HOME/.config/solana" # the directory for the config files, eg.: /home/user/.config/solana
 ##### optional:        #
-identityPubkey=""      # identity pubkey for the validator, insert if autodiscovery fails
-voteAccount=""         # vote account address for the validator, specify if there are more than one or if autodiscovery fails
+identityPubkey="XXXXXXXXXXXXXXXXXXXXXX"      # identity pubkey for the validator, insert if autodiscovery fails
+voteAccount="XXXXXXXXXXXXXXXXXXXXXX"         # vote account address for the validator, specify if there are more than one or if autodiscovery fails
 additionalInfo="on"    # set to 'on' for additional general metrics like balance on your vote and identity accounts, number of validator nodes, epoch number and percentage epoch elapsed
-binDir=""              # auto detection of the solana binary directory can fail or an alternative custom installation is preferred, in case insert like $HOME/solana/target/release
+binDir="/root/SAFE/target/release"              # auto detection of the solana binary directory can fail or an alternative custom installation is preferred, in case insert like $HOME/solana/target/release
 rpcURL=""              # default is localhost with port number autodiscovered, alternatively it can be specified like http://custom.rpc.com:port
 format="SOL"           # amounts shown in 'SOL' instead of lamports
 now=$(date +%s%N)      # date in influx format
 #####  END CONFIG  ##################################################################################################
 
 if [ -n  "$binDir" ]; then
-   cli="${binDir}/solana"
+   cli="${binDir}/safecoin"
 else
    if [ -z $configDir ]; then echo "please configure the config directory"; exit 1; fi
    installDir="$(cat ${configDir}/install/config.yml | grep 'active_release_dir\:' | awk '{print $2}')/bin"
-   if [ -n "$installDir" ]; then cli="${installDir}/solana"; else echo "please configure the cli manually or check the configDir setting"; exit 1; fi
+   if [ -n "$installDir" ]; then cli="${installDir}/safecoin"; else echo "please configure the cli manually or check the configDir setting"; exit 1; fi
 fi
 
 if [ -z $rpcURL ]; then
-   rpcPort=$(ps aux | grep solana-validator | grep -Po "\-\-rpc\-port\s+\K[0-9]+")
+   rpcPort=$(ps aux | grep safecoin-validator | grep -Po "\-\-rpc\-port\s+\K[0-9]+")
    if [ -z $rpcPort ]; then echo "nodemonitor,pubkey=$identityPubkey status=4 $now"; exit 1; fi
    rpcURL="http://127.0.0.1:$rpcPort"
 fi
 
-noVoting=$(ps aux | grep solana-validator | grep -c "\-\-no\-voting")
+noVoting=$(ps aux | grep safecoin-validator | grep -c "\-\-no\-voting")
 if [ "$noVoting" -eq 0 ]; then
    if [ -z $identityPubkey ]; then identityPubkey=$($cli address --url $rpcURL); fi
    if [ -z $identityPubkey ]; then echo "auto-detection failed, please configure the identityPubkey in the script if not done"; exit 1; fi
@@ -44,7 +44,8 @@ fi
 
 validatorBalance=$($cli balance $identityPubkey | grep -o '[0-9.]*')
 validatorVoteBalance=$($cli balance $voteAccount | grep -o '[0-9.]*')
-solanaPrice=$(curl -s 'https://api.binance.com/api/v3/ticker/price?symbol=SOLUSDT' | jq -r .price)
+solanaPrice=$(curl -s 'https://api.coingecko.com/api/v3/simple/price?ids=safe-coin-2&vs_currencies=usd' | sed 's/.*://' | sed -r 's/.{2}$//'
+)
 openfiles=$(cat /proc/sys/fs/file-nr | awk '{ print $1 }')
 validatorCheck=$($cli validators --url $rpcURL)
 
@@ -114,4 +115,3 @@ if [ $(grep -c $voteAccount <<< $validatorCheck) == 0  ]; then echo "validator n
         logentry="nodemonitor,pubkey=$identityPubkey status=$status $now"
     fi
  echo $logentry
-
