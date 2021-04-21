@@ -1,4 +1,4 @@
-# Solana Validator Monitoring Tool
+# SafeCoin Validator Monitoring Tool
 
 *This post is Part 1 of a 3-part series about setting up proper monitoring on your SafeCoin Validator.*
 
@@ -24,7 +24,7 @@ Telegraf is an open-source tool. It contains over 200 plugins for gathering and 
 
 ![Architecture](https://i.imgur.com/xmbND94.png)
 
-### Solana Monitoring
+### SafeCoin Monitoring
 The solution consist of a standard telegraf installation and one bash script "monitor.sh" that will get all server performance and validator performance metrics every 30 seconds and send all the metrics to a local or remote influx database server.
 
 ![Sample Dashboard](https://i.imgur.com/2CB2F1o.png)
