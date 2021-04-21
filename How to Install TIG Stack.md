@@ -1,14 +1,14 @@
 # How to Install Telegraf, InfluxDB, and Grafana
 
-*This post is Part 2 of a 3-part series about setting up proper monitoring on your Solana Validator.*
+*This post is Part 2 of a 3-part series about setting up proper monitoring on your SafeCoin Validator.*
 
-* [Part 1.](https://github.com/stakeconomy/solanamonitoring/blob/main/README.md) Solana Validator Monitoring Tool
-* [Part 2.](https://github.com/stakeconomy/solanamonitoring/blob/main/How%20to%20Install%20TIG%20Stack.md) How to Install Telegraf, InfluxDB, and Grafana
-* [Part 3.](https://github.com/stakeconomy/solanamonitoring/blob/main/Guidelines%20interpreting%20metrics.md) Interpreting monitoring metrics
+* [Part 1.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/README.md) Solana Validator Monitoring Tool
+* [Part 2.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/How%20to%20Install%20TIG%20Stack.md) How to Install Telegraf, InfluxDB, and Grafana
+* [Part 3.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/Guidelines%20interpreting%20metrics.md) Interpreting monitoring metrics
 
 ## Installation & Setup
 
-We are going to setup a TIG monitoring stack for your solana infrastructure. So you can collects perofrmance metrics from your servers and applications running.
+We are going to setup a TIG monitoring stack for your SafeCoin infrastructure. So you can collects perofrmance metrics from your servers and applications running.
 
 *Telegraf* - Data collector written in Go for collecting, processing, and aggregating and writting metrics. Its a plugin driven tool, we will use a few plugins while implementing our use case.
 *InfluxDB* - Scalable time series database for metrics, events and real-time analytics.
@@ -134,4 +134,4 @@ Point your browser to http://server-ipdres:3000, you should see the newly instal
 The default credential is admin with password admin. You might want to change this as soon as you can.
 
 
-In [Part 3.](https://github.com/stakeconomy/solanamonitoring/blob/main/Guidelines%20interpreting%20metrics.md) you can read how to interpret all metrics
+In [Part 3.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/Guidelines%20interpreting%20metrics.md) you can read how to interpret all metrics
