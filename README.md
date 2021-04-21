@@ -54,7 +54,7 @@ EOF
 sudo curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 
 sudo apt-get update
-sudo apt-get -y install telegraf jq bc
+sudo apt-get -y install telegraf jq bc git
 
 sudo systemctl enable --now telegraf
 sudo systemctl is-enabled telegraf
@@ -69,6 +69,8 @@ sudo cp /etc/telegraf/telegraf.conf /etc/telegraf/telegraf.conf.orig
 sudo rm -rf /etc/telegraf/telegraf.conf
 
 # make sure you are the user you run SafeCoin with . eq. su - safe
+su safe
+cd ~
 git clone https://github.com/safegw/SafeCoin-Monitoring/
 cd SafeCoin-Monitoring/
 
