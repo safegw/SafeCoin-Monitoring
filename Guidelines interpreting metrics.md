@@ -62,6 +62,6 @@ I have put most metrics in a detailed table, the normal and alarm table states w
 |Skiprate|0-25%|>25%|Skiprate is pretty important measurement of how your server is performing. Having more than 25% skiprate normally implies something is wrong. Most of the time it's diskspeed, lack of processor cores, high latency or throughput.|
 
 
-![Metrics-Explained](https://i.imgur.com/oTD0Uc4.png)
+![Metrics-Explained](https://ibb.co/BTSS2Kk)
 
 
