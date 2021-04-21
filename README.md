@@ -27,7 +27,7 @@ Telegraf is an open-source tool. It contains over 200 plugins for gathering and 
 ### SafeCoin Monitoring
 The solution consist of a standard telegraf installation and one bash script "monitor.sh" that will get all server performance and validator performance metrics every 30 seconds and send all the metrics to a local or remote influx database server.
 
-![Sample Dashboard](https://i.imgur.com/2CB2F1o.png)
+![Sample Dashboard]([url=https://ibb.co/DLCqPFt][img]https://i.ibb.co/qxsZL8d/Bildschirmfoto-20210421173846-1707x888-big.png[/img][/url])
 
 # Features
 * Simple setup with minimal performance impact to monitor validator node.
