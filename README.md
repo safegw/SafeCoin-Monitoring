@@ -80,7 +80,7 @@ cd SafeCoin-Monitoring/
 # Example telegraf configuration
 Add the configuration file /etc/telegraf/telegraf.conf based on the example below:
 
-Change your hostname, mountpoints to monitor, location of the monitor script and the username
+Change your hostname, mountpoints to monitor, location of the monitor script and the username. Do not forget to download the file 'monitor.sh' to the correct folder which is stored in the telegraf config below
 
 ```
 # Global Agent Configuration
@@ -122,5 +122,6 @@ Change your hostname, mountpoints to monitor, location of the monitor script and
   data_type = "integer"
 ```
 
+If you want to run your own Grafana Dashboard please procceed with Part 2. Otherwise switch to https://safecoin.safegw.net:3000/goto/eU4_ojXMz and select your Valdiator according your $hostname configuration setting.
 
 Please continue to [Part 2.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/How%20to%20Install%20TIG%20Stack.md) that was written to help you setup your own TIG (Telegraf/InfluxDB/Grafana) stack.
