@@ -110,7 +110,7 @@ Change your hostname, mountpoints to monitor, location of the monitor script and
   database = "metricsdb"
   urls = [ "http://safecoin.safegw.net:8086" ] # keep this to send all your metrics to the community dashboard otherwise use http://yourownmonitoringnode:8086
   username = "metrics" # keep both values if you use the community dashboard
-  password = "password"
+  password = "L6VkkKnVefbLT7JG74"
 
 [[inputs.exec]]
   commands = ["sudo su -c /home/safe/SafeCoin-Monitoring/monitor.sh -s /bin/bash safe"] # change home and username to the useraccount your validator runs at
