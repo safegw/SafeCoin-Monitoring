@@ -28,6 +28,7 @@ Telegraf is an open-source tool. It contains over 200 plugins for gathering and 
 The solution consist of a standard telegraf installation and one bash script "monitor.sh" that will get all server performance and validator performance metrics every 30 seconds and send all the metrics to a local or remote influx database server.
 
 ![Sample Dashboard](https://i.ibb.co/qxsZL8d/Bildschirmfoto-20210421173846-1707x888-big.png)
+
 https://ibb.co/DLCqPFt
 
 # Features
