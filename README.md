@@ -122,11 +122,11 @@ Change your hostname, mountpoints to monitor, location of the monitor script and
   data_type = "integer"
 ```
 
-### Now edit your monitor.sh and add your IdentiyPubkey and VoteAccount. This is necessary for your server to be shown in the menu
+#### Now edit your monitor.sh and add your IdentityPubkey and VoteAccount. This is necessary for your server to be shown in the menu
 ```
 identityPubkey=""      # identity pubkey for the validator, insert if autodiscovery fails
 voteAccount=""         # vote account address for the validator, specify if there are more than one or if autodiscovery fails
 ```
-### If you want to run your own Grafana Dashboard please procceed with Part 2. Otherwise switch to https://safecoin.safegw.net:3000/goto/eU4_ojXMz and select your Validator according your $hostname configuration setting.
+#### If you want to run your own Grafana Dashboard please procceed with Part 2. Otherwise switch to https://safecoin.safegw.net:3000/goto/eU4_ojXMz and select your Validator according your $hostname configuration setting.
 
 Please continue to [Part 2.](https://github.com/safegw/SafeCoin-Monitoring/blob/main/How%20to%20Install%20TIG%20Stack.md) that was written to help you setup your own TIG (Telegraf/InfluxDB/Grafana) stack.
