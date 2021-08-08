@@ -8,7 +8,7 @@
 #####    
 
 #####    CONFIG    ##################################################################################################
-configDir="$HOME/.config/solana" # the directory for the config files, eg.: /home/user/.config/solana
+configDir="$HOME/.config/safecoin" # the directory for the config files, eg.: /home/user/.config/solana
 ##### optional:        #
 identityPubkey="XXXXXXXXXXXXXXXXXXXXXX"      # identity pubkey for the validator, insert if autodiscovery fails
 voteAccount="XXXXXXXXXXXXXXXXXXXXXX"         # vote account address for the validator, specify if there are more than one or if autodiscovery fails
